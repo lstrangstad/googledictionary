@@ -12,7 +12,7 @@ const Dictionary = () => {
    }, [query, lang]);
 
    const languageFilter = (value) =>
-      languages.map((obj) => {
+      languages.forEach((obj) => {
          if (obj.code === value) {
             setQuery(obj.msg);
          }
