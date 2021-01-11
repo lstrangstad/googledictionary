@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Phonetic = (props) => {
-   const { text, audio } = props;
+   const { text } = props;
    console.log('phonetic props', props);
    return (
       <div>
