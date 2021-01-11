@@ -1,4 +1,4 @@
-export const apiUrl = 'https://api.dictionaryapi.dev/api/v2/entries/';
+export const apiUrl = 'https://api.dictionaryapi.dev/api/v2/entries';
 export const languages = [
    { code: 'en', language: 'english' },
    { code: 'es', language: 'spanish' },
