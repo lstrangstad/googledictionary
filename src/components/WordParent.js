@@ -4,8 +4,7 @@ import Meaning from './Meaning';
 import Phonetic from './Phonetic';
 
 const WordParent = (props) => {
-   const { word, meanings, phonetics } = props;
-   console.log('parent ', props);
+   const { word, meanings, phonetics, setQuery, clearErr } = props;
    return (
       <div className={'wordParent'}>
          <h2>{ucFirst(word)}</h2>
@@ -14,7 +13,12 @@ const WordParent = (props) => {
          ))}
 
          {meanings.map((meaning, idx) => (
-            <Meaning key={idx} {...meaning} />
+            <Meaning
+               key={idx}
+               {...meaning}
+               setQuery={setQuery}
+               clearErr={clearErr}
+            />
          ))}
       </div>
    );

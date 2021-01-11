@@ -8,11 +8,25 @@ const Dictionary = () => {
    const [lang, setLang] = useState('en');
    const [query, setQuery] = useState('Discovery'); // search data
    const [filter, setFilter] = useState('');
+   const [errorStatus, setErrorStatus] = useState(0);
+   const [errorData, setErrorData] = useState({});
 
-   useEffect(() => {
-      axios.get(`${apiUrl}/${lang}/${query}`).then((res) => setWords(res.data));
+   useEffect(async () => {
+      try {
+         await axios
+            .get(`${apiUrl}/${lang}/${query}`)
+            .then((res) => setWords(res.data));
+      } catch (err) {
+         setErrorData(err.response.data);
+         setErrorStatus(err.response.status);
+      }
    }, [query, lang]);
 
+   const clearErrorState = () => {
+      setErrorData({});
+      setErrorStatus();
+      setFilter('');
+   };
    const languageFilter = (value) =>
       languages.forEach((obj) => {
          if (obj.code === value) {
@@ -45,16 +59,17 @@ const Dictionary = () => {
          default:
             return;
       }
+      clearErrorState();
    };
 
    const handleFiltering = (e) => {
       setFilter(e.target.value);
-      console.log(filter);
    };
 
    const handleSubmit = (e) => {
       e.preventDefault();
       setQuery(filter);
+      clearErrorState();
    };
 
    return (
@@ -68,11 +83,13 @@ const Dictionary = () => {
             ))}
             <form onSubmit={handleSubmit}>
                <input
+                  className={'search'}
                   type={'text'}
                   placeholder={'Search...'}
                   value={filter}
                   onChange={handleFiltering}
                ></input>
+               {errorStatus ? <p>{errorData.title}</p> : <></>}
             </form>
          </div>
          <div>
@@ -81,7 +98,12 @@ const Dictionary = () => {
             ) : (
                <div>
                   {words.map((item, idx) => (
-                     <WordParent key={idx} {...item} />
+                     <WordParent
+                        key={idx}
+                        {...item}
+                        setQuery={setQuery}
+                        clearErr={clearErrorState}
+                     />
                   ))}
                </div>
             )}
