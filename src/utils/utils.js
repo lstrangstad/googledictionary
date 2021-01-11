@@ -7,3 +7,7 @@ export const languages = [
    { code: 'it', language: 'italian', msg: 'Scoprire' },
    { code: 'pt-BR', language: 'brazilian portuguese', msg: 'Descobrir' },
 ];
+
+export const ucFirst = (string) => {
+   return string.charAt(0).toUpperCase() + string.slice(1);
+};

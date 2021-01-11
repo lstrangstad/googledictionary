@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { apiUrl, languages } from '../utils/utils';
+import { apiUrl, languages, ucFirst } from '../utils/utils';
 
 const Dictionary = () => {
    const [words, setWords] = useState([]);
@@ -61,7 +61,7 @@ const Dictionary = () => {
             ) : (
                <div>
                   {words.map((item, idx) => (
-                     <h3 key={idx}>{item.word}</h3>
+                     <h3 key={idx}>{ucFirst(item.word)}</h3>
                   ))}
                </div>
             )}
