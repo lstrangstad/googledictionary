@@ -1,9 +1,7 @@
-import { getSuggestedQuery } from '@testing-library/react';
 import React from 'react';
 
 const Definition = (props) => {
    const { definition, example, synonyms, setQuery, clearErr } = props;
-
    return (
       <div>
          <p>Definition: {definition}</p>
@@ -25,9 +23,7 @@ const Definition = (props) => {
                   })}
                </div>
             </div>
-         ) : (
-            <></>
-         )}
+         ) : null}
       </div>
    );
 };

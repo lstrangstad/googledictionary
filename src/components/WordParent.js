@@ -7,7 +7,7 @@ const WordParent = (props) => {
    const { word, meanings, phonetics, setQuery, clearErr } = props;
    return (
       <div className={'wordParent'}>
-         <h2>{ucFirst(word)}</h2>
+         <h1>{ucFirst(word)}</h1>
          {phonetics.map((phonetic, idx) => (
             <Phonetic key={idx} {...phonetic} />
          ))}

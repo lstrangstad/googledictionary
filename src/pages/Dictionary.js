@@ -89,7 +89,9 @@ const Dictionary = () => {
                   value={filter}
                   onChange={handleFiltering}
                ></input>
-               {errorStatus ? <p>{errorData.title}</p> : <></>}
+               {errorStatus ? (
+                  <p className={'errormsg'}>{errorData.title}</p>
+               ) : null}
             </form>
          </div>
          <div>
