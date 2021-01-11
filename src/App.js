@@ -1,11 +1,7 @@
 import './styles/main.scss';
 
-function App() {
-   return (
-      <div className='App'>
-         <p>Hello World</p>
-      </div>
-   );
+function App(props) {
+   return <>{props.children}</>;
 }
 
 export default App;

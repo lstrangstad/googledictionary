@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import App from './App';
+import About from './pages/About';
+import Dictionary from './pages/Dictionary';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-   <React.StrictMode>
-      <App />
-   </React.StrictMode>,
+   <Router>
+      <App>
+         <Switch>
+            <Route path='/' exact component={Dictionary} />
+            <Route path='/about' exact component={About} />
+         </Switch>
+      </App>
+   </Router>,
    document.getElementById('root')
 );
 
