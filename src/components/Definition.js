@@ -3,7 +3,7 @@ import React from 'react';
 const Definition = (props) => {
    const { definition, example, synonyms, setQuery, clearErr } = props;
    return (
-      <div>
+      <div className={'definition'}>
          <p>Definition: {definition}</p>
          <p>Example: {example}</p>
          {synonyms?.length > 0 ? (

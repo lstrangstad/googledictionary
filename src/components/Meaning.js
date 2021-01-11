@@ -4,7 +4,7 @@ import Definition from './Definition';
 const Meaning = (props) => {
    const { partOfSpeech, definitions, setQuery, clearErr } = props;
    return (
-      <div className={'definition'}>
+      <div>
          <h2>{partOfSpeech}</h2>
          {definitions.length > 0 ? (
             <>
