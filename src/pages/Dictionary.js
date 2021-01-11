@@ -57,7 +57,7 @@ const Dictionary = () => {
             ))}
          </div>
          <div>
-            {!words.length > 0 ? (
+            {!words.length >= 1 ? (
                <p>no data yet</p>
             ) : (
                <div>
