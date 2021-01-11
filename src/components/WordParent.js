@@ -9,16 +9,10 @@ const WordParent = (props) => {
    return (
       <div>
          <h2>{ucFirst(word)}</h2>
-         {phonetics ? (
-            <>
-               <h3>Phonetics: </h3>
-               {phonetics.map((phonetic, idx) => (
-                  <Phonetic key={idx} {...phonetic} />
-               ))}
-            </>
-         ) : (
-            <></>
-         )}
+         {phonetics.map((phonetic, idx) => (
+            <Phonetic key={idx} {...phonetic} />
+         ))}
+
          {meanings.map((meaning, idx) => (
             <Meaning key={idx} {...meaning} />
          ))}

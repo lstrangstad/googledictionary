@@ -3,7 +3,6 @@ import Synonym from './Synonym';
 
 const Definition = (props) => {
    const { definition, example, synonyms } = props;
-   console.log(props);
    return (
       <div>
          <p>Definition: {definition}</p>

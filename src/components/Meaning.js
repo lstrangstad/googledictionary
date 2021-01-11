@@ -3,7 +3,6 @@ import Definition from './Definition';
 
 const Meaning = (props) => {
    const { partOfSpeech, definitions } = props;
-   console.log(props);
    return (
       <div>
          <p>Part of Speech: {partOfSpeech}</p>
