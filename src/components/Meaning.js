@@ -1,17 +1,17 @@
 import React from 'react';
-import Definitions from './Definitions';
+import Definition from './Definition';
 
-const Meanings = (props) => {
+const Meaning = (props) => {
    const { partOfSpeech, definitions } = props;
    console.log(props);
    return (
       <div>
          <p>Part of Speech: {partOfSpeech}</p>
          {definitions.map((definition, idx) => (
-            <Definitions key={idx} {...definition} />
+            <Definition key={idx} {...definition} />
          ))}
       </div>
    );
 };
 
-export default Meanings;
+export default Meaning;

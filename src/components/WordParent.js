@@ -1,16 +1,15 @@
 import React from 'react';
 import { ucFirst } from '../utils/utils';
-import Meanings from './Meanings';
+import Meaning from './Meaning';
 
 const WordParent = (props) => {
    const { word, meanings } = props;
-   console.log('props ', props);
-   console.log('meanings, parent', meanings);
+   console.log('parent ', props);
    return (
       <div>
          <h2>{ucFirst(word)}</h2>
          {meanings.map((meaning, idx) => (
-            <Meanings key={idx} {...meaning} />
+            <Meaning key={idx} {...meaning} />
          ))}
       </div>
    );

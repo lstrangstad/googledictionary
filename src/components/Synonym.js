@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Synonyms = (props) => {
+const Synonym = (props) => {
    const { synonym } = props;
    return (
       <div>
@@ -9,4 +9,4 @@ const Synonyms = (props) => {
    );
 };
 
-export default Synonyms;
+export default Synonym;
