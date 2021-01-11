@@ -7,6 +7,7 @@ const Dictionary = () => {
    const [words, setWords] = useState([]);
    const [lang, setLang] = useState('en');
    const [query, setQuery] = useState('Discovery'); // search data
+   const [filter, setFilter] = useState('');
 
    useEffect(() => {
       axios.get(`${apiUrl}/${lang}/${query}`).then((res) => setWords(res.data));
@@ -46,6 +47,16 @@ const Dictionary = () => {
       }
    };
 
+   const handleFiltering = (e) => {
+      setFilter(e.target.value);
+      console.log(filter);
+   };
+
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      setQuery(filter);
+   };
+
    return (
       <>
          <h1>Dictionary</h1>
@@ -55,9 +66,17 @@ const Dictionary = () => {
                   {item.language}
                </button>
             ))}
+            <form onSubmit={handleSubmit}>
+               <input
+                  type={'text'}
+                  placeholder={'Search...'}
+                  value={filter}
+                  onChange={handleFiltering}
+               ></input>
+            </form>
          </div>
          <div>
-            {!words.length >= 1 ? (
+            {words.length < 1 ? (
                <p>no data yet</p>
             ) : (
                <div>
