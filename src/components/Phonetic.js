@@ -1,5 +1,4 @@
 import React from 'react';
-import Audio from './Audio';
 
 const Phonetic = (props) => {
    const { text, audio } = props;
@@ -7,7 +6,6 @@ const Phonetic = (props) => {
    return (
       <div>
          <p>{text}</p>
-         <Audio audio={audio} />
       </div>
    );
 };
